@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web2.0</title>
+  </head>
+  <body>
+    <h2>Hello world</h2>
+
+    <button id="btn">Click me!</button>
+    <script>
+      // var btn = document.getElementById('btn');
+      // function MyObject() {
+      //   this.number = 4;
+      //   this.undefined = undefined;
+      //   this.null = null;
+      //   this.string = 'some string';
+      //   this.float = 3.14;
+      //   this.symbol = Symbol();
+      //   this.array = [];
+      //   this.object = {};
+      //   this.true = true;
+      //   this.false = false;
+      // }
+
+      // btn.onclick = function () {
+      //   obj1 = new MyObject();
+      //   obj2 = new MyObject();
+      // };
+
+      // console.log(window);
+
+      // const map = new Map();
+      // let i = 0;
+
+      // setInterval(function () {
+      //   map.set(i, `Value ${i}`);
+      //   ++i;
+      // }, 1);
+
+      // {
+      //   let obj = new Map();
+      // }
+
+      class Mlass {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+
+      const outterMlass = new Mlass('outterMlass');
+      const outterString = 'outterString';
+
+      {
+        const innerMlass = new Mlass('innerMlass');
+        const innerString = 'innerString';
+      }
+    </script>
+  </body>
+</html>
