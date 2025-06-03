@@ -11,23 +11,23 @@
     <button id="btn">Click me!</button>
     <script>
       // var btn = document.getElementById('btn');
-      // function MyObject() {
-      //   this.number = 4;
-      //   this.undefined = undefined;
-      //   this.null = null;
-      //   this.string = 'some string';
-      //   this.float = 3.14;
-      //   this.symbol = Symbol();
-      //   this.array = [];
-      //   this.object = {};
-      //   this.true = true;
-      //   this.false = false;
-      // }
+      function MyObject() {
+        this.number = -1 >>> 0;
+        this.undefined = undefined;
+        this.null = null;
+        this.string = 'some string';
+        this.float = 3.14;
+        this.symbol = Symbol();
+        this.array = [];
+        this.object = {};
+        this.true = true;
+        this.false = false;
+      }
 
-      // btn.onclick = function () {
-      //   obj1 = new MyObject();
-      //   obj2 = new MyObject();
-      // };
+      btn.onclick = function () {
+        obj1 = new MyObject();
+        obj2 = new MyObject();
+      };
 
       // console.log(window);
 
