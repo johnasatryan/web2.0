@@ -63,16 +63,16 @@
 
 // foo()
 
-const arr = [];
+// const arr = [];
 
 // arr.push(23);
 // console.log(arr);
 // descriptor
 
-console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(arr)));
+console.log(Object.getOwnPropertyNames(Object.getPrototypeOf([])));
 
-let arr1 = [1, 2, 3];
-let arr2 = [4, 5, 6];
+// let arr1 = [1, 2, 3];
+// let arr2 = [4, 5, 6];
 
 // console.log(arr1.concat(arr2));
 
@@ -82,10 +82,15 @@ let arr2 = [4, 5, 6];
 
 // console.log(x);
 
-console.log(arr2.shift());
+// console.log(arr2.shift());
 
-console.log(arr2);
-console.log(arr2.length);
+// console.log(arr2);
+// console.log(arr2.length);
 
-arr2.unshift('hello');
-console.log(arr2);
+// arr2.unshift('hello');
+// console.log(arr2);
+
+
+
+
+
