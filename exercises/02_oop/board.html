@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        gap: 5px;
+        margin: 0 auto;
+      }
+      .cell {
+        width: 100px;
+        height: 100px;
+        background-color: #f0f0f0;
+        border: 2px solid #333;
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="board">
+      <div id="cell"></div>
+    </div>
+    <script>
+      const boardElement = document.getElementById('board');
+      const board = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+      ];
+      boardElement.innerHTML = '';
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+          const cell = document.createElement('div');
+          cell.classList.add('cell');
+          cell.dataset.row = row;
+          cell.dataset.col = col;
+          cell.addEventListener('click', function () {
+            handleCellClick(row, col);
+          });
+          boardElement.appendChild(cell);
+        }
+      }
+
+      function renderBoard() {
+        const cells = document.querySelectorAll('.cell');
+
+        cells.forEach((cell) => {
+          const row = Number(cell.dataset.row);
+          const col = Number(cell.dataset.col);
+          cell.textContent = board[row][col];
+        });
+      }
+
+      function handleCellClick(row, col) {
+        console.log(board);
+        if (board[row][col] === '') {
+          board[row][col] = 'X';
+          renderBoard();
+        }
+      }
+    </script>
+  </body>
+</html>
