@@ -46,17 +46,17 @@
 // 3. explicit
 // 4. new
 
-function Person() {
-  this.name = 'Bob';
-  this.method = function () {
-    console.log(this);
-  };
-}
+// function Person() {
+//   this.name = 'Bob';
+//   this.method = function () {
+//     console.log(this);
+//   };
+// }
 
-let p = new Person();
-p.method();
+// let p = new Person();
+// p.method();
 
-let x = p.method;
-x();
+// let x = p.method;
+// x();
 
-console.log(exports);
+// console.log(exports);
