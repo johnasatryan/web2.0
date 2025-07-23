@@ -1,117 +1,119 @@
-// // // abstract classes vs intances
-// // //
+// // // // abstract classes vs intances
+// // // //
 
-// // class CloudProvider {
+// // // class CloudProvider {
+// // //   constructor() {
+// // //     if (new.target === CloudProvider) {
+// // //       throw new Error("Abstract class can't be instantiated...");
+// // //     }
+// // //   }
+// // //   storeFile(name) {
+// // //     throw new Error("Abstract method can't have implementation...");
+// // //   }
+// // //   getFile(name) {
+// // //     throw new Error("Abstract method can't have implementation...");
+// // //   }
+
+// // //   createServer(region) {
+// // //     throw new Error("Abstract method can't have implementation...");
+// // //   }
+
+// // //   listServers(region) {
+// // //     throw new Error("Abstract method can't have implementation...");
+// // //   }
+
+// // //   getCDNAddress() {
+// // //     throw new Error("Abstract method can't have implementation...");
+// // //   }
+// // // }
+
+// // // class Amazon extends CloudProvider {
+// // //   constructor() {
+// // //     super();
+// // //   }
+
+// // //   createServer(region) {
+
+// // //   }
+// // // }
+
+// // // let b = new Amazon();
+
+// // class Base {
 // //   constructor() {
-// //     if (new.target === CloudProvider) {
-// //       throw new Error("Abstract class can't be instantiated...");
-// //     }
+// //     console.log('hello world');
 // //   }
-// //   storeFile(name) {
-// //     throw new Error("Abstract method can't have implementation...");
-// //   }
-// //   getFile(name) {
-// //     throw new Error("Abstract method can't have implementation...");
-// //   }
-
-// //   createServer(region) {
-// //     throw new Error("Abstract method can't have implementation...");
-// //   }
-
-// //   listServers(region) {
-// //     throw new Error("Abstract method can't have implementation...");
-// //   }
-
-// //   getCDNAddress() {
-// //     throw new Error("Abstract method can't have implementation...");
-// //   }
+// //   foo() {}
 // // }
 
-// // class Amazon extends CloudProvider {
+// // function mixin(Base) {
+// //   return class extends Base {
+// //     constructor() {
+// //       super();
+// //       console.log('hello Mlass');
+// //     }
+// //   };
+// // }
+
+// // class Mlass extends mixin(Base) {
 // //   constructor() {
 // //     super();
 // //   }
-
-// //   createServer(region) {
-
-// //   }
 // // }
 
-// // let b = new Amazon();
+// // let m = new Mlass();
 
-// class Base {
+// class StorageProvider {
 //   constructor() {
-//     console.log('hello world');
+//     if (new.target === StorageProvider) {
+//       throw new Error("Abstract class can't be instantiated...");
+//     }
 //   }
-//   foo() {}
+//   storeFile(name) {
+//     throw new Error("Abstract method can't have implementation...");
+//   }
+//   getFile(name) {
+//     throw new Error("Abstract method can't have implementation...");
+//   }
+//   foo() {
+//     console.log('StorageProvider::foo');
+//   }
 // }
 
-// function mixin(Base) {
-//   return class extends Base {
+// class CDNProvider {
+//   constructor() {
+//     if (new.target === CDNProvider) {
+//       throw new Error("Abstract class can't be instantiated...");
+//     }
+//   }
+//   getCDNAddress() {
+//     throw new Error("Abstract method can't have implementation...");
+//   }
+//   foo() {
+//     console.log('CDNProvider::foo');
+//   }
+// }
+
+// function CP() {
+//   return class extends CDNProvider {
 //     constructor() {
 //       super();
-//       console.log('hello Mlass');
 //     }
 //   };
 // }
 
-// class Mlass extends mixin(Base) {
-//   constructor() {
-//     super();
-//   }
+// function MP() {
+//   return class extends StorageProvider {
+//     constructor() {
+//       super();
+//     }
+//   };
 // }
 
-// let m = new Mlass();
+// class Amazon extends MP(CP()) {}
 
-class StorageProvider {
-  constructor() {
-    if (new.target === StorageProvider) {
-      throw new Error("Abstract class can't be instantiated...");
-    }
-  }
-  storeFile(name) {
-    throw new Error("Abstract method can't have implementation...");
-  }
-  getFile(name) {
-    throw new Error("Abstract method can't have implementation...");
-  }
-  foo() {
-    console.log('StorageProvider::foo');
-  }
-}
+// let am = new Amazon();
 
-class CDNProvider {
-  constructor() {
-    if (new.target === CDNProvider) {
-      throw new Error("Abstract class can't be instantiated...");
-    }
-  }
-  getCDNAddress() {
-    throw new Error("Abstract method can't have implementation...");
-  }
-  foo() {
-    console.log('CDNProvider::foo');
-  }
-}
+// am.foo();
 
-function CP() {
-  return class extends CDNProvider {
-    constructor() {
-      super();
-    }
-  };
-}
 
-function MP() {
-  return class extends StorageProvider {
-    constructor() {
-      super();
-    }
-  };
-}
-
-class Amazon extends MP(CP()) {}
-
-let am = new Amazon();
-
-am.foo();
