@@ -45,10 +45,10 @@
 // // let chlp = 'snickers';
 // // const obj = { [chlp]: 23 };
 
-function rend() {
-  let res = [];
+// function rend() {
+//   let res = [];
 
-  for (let i = 0; i < 10000000; ++i) {
-    res.push(i);                       
-  }
-}
+//   for (let i = 0; i < 10000000; ++i) {
+//     res.push(i);                       
+//   }
+// }
