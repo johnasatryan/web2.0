@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      rel="noopener"
+      target="_blank"
+      href="../public/favicon.ico"
+    />
+    <title>Room Booking Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="hamburger-menu" onclick="toggleRoomSelector()">☰</div>
+      <div class="selection-container">
+        <div class="room-selector">
+          <button class="room-btn" onclick="updateRoomSelection('Classroom')">
+            Classrooms
+          </button>
+          <button class="room-btn" onclick="updateRoomSelection('Space')">
+            Spaces
+          </button>
+          <button class="room-btn" onclick="updateRoomSelection('Meetingroom')">
+            Meeting Rooms
+          </button>
+          <button class="room-btn" onclick="updateRoomSelection('Others')">
+            Others
+          </button>
+        </div>
+        <div class="room-name-selection">
+          <label for="roomName">Select Room:</label>
+          <select id="roomName"></select>
+        </div>
+
+        <div class="search-container">
+          <div class="button-container">
+            <button onclick="redirectToAvailabilityPage()">
+              Check Availability
+            </button>
+          </div>
+
+          <input type="text" id="searchInput" placeholder="Search..." />
+          <div class="button-container">
+            <button onclick="performSearch()">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="searchResults" style="display: none">
+        <!-- Search results will be displayed here -->
+      </div>
+      <div id="dashboard">
+        <div class="loader" id="loader" style="display: none"></div>
+
+        <div id="calendar">
+          <div class="calendar-navigation">
+            <div class="month-navigation">
+              <button id="prevMonth" onclick="changeMonth(-1)">
+                Previous Month
+              </button>
+              <button id="nextMonth" onclick="changeMonth(1)">
+                Next Month
+              </button>
+              <span id="currentMonthDisplay"></span>
+            </div>
+            <div class="week-navigation">
+              <span id="currentWeekDisplay"></span>
+              <button id="prevWeek" onclick="changeWeek(-1)">
+                Previous Week
+              </button>
+              <button id="nextWeek" onclick="changeWeek(1)">Next Week</button>
+            </div>
+          </div>
+          <div id="scheduleModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Schedule Details</h2>
+              <div id="modalDetails">
+                 
+              </div>
+            </div>
+          </div>
+          <div id="calendar">
+            <table id="calendarTable">
+              <thead>
+                <tr id="weekdays"></tr>
+              </thead>
+              <tbody id="calendarBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.mode = 'view';
+    </script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>
