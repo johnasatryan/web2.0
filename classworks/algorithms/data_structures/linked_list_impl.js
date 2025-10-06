@@ -89,35 +89,15 @@ class LinkedList {
   remove(value, equals) {}
   reverse() {}
   sort() {
+    if (this.#size < 2) return;
     this.#head = this._merge_sort(this.#head);
   }
 
   _merge(left, right) {
     if (!left) return right;
     if (!right) return left;
-
-    if (left.data < right.data) {
-      left.next = right;
-      right.prev = left;
-      left = left.next;
-    } else {
-      right.next = left;
-      left.prev = right;
-      right = right.next;
-    }
-
-    while (left && right) {
-      if (left.data < right.data) {
-        left.next = right;
-        right.prev = left;
-        left = left.next;
-      } else {
-        right.next = left;
-        left.prev = right;
-        right = right.next;
-      }
-    }
   }
+
   _merge_sort(head) {
     if (!head || !head.next) return head;
     let slow = head;
@@ -127,13 +107,6 @@ class LinkedList {
       slow = slow.next;
       fast = fast.next.next;
     }
-    let mid = slow.next;
-
-    slow.next = null;
-
-    this._merge_sort(head);
-    this._merge_sort(mid);
-    this._merge(head, mid);
   }
   print() {
     let current = this.#head;
