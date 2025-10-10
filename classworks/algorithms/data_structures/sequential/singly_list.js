@@ -1,4 +1,4 @@
-const randomArrayGenerator = require('./helpers');
+const randomArrayGenerator = require('../helpers');
 
 class Node {
   constructor(data, next = null) {
