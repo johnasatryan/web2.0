@@ -35,6 +35,9 @@ class Queue {
     return value;
   }
 
+  size() {
+    return this.#size;
+  }
   print() {
     let out = '';
 
@@ -47,14 +50,4 @@ class Queue {
   }
 }
 
-const queue = new Queue(5);
-
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.enqueue(40);
-queue.enqueue(50);
-queue.print();
-queue.dequeue();
-queue.print();
- 
+module.exports = Queue;
