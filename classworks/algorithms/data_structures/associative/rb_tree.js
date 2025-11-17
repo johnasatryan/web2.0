@@ -31,17 +31,43 @@ class RBTree {
     this.root = this.nil;
   }
 
+  leftRotate(current) {
+    let pivotNode = current.right;
+    current.right = pivotNode.left;
+
+    if (pivotNode.left !== this.nil) {
+      pivotNode.left.parent = current;
+    }
+
+    pivotNode.parent = current.parent;
+    if (current.parent === this.nil) {
+      this.root = pivotNode;
+    } else if (current === current.parent.left) {
+      current.parent.left = pivotNode;
+    } else {
+      current.parent.right = pivotNode;
+    }
+
+    pivotNode.left = current;
+    current.parent = pivotNode;
+  }
+
   rotateRight(current) {
     let pivotNode = current.left;
     current.left = pivotNode.right;
 
     if (pivotNode.right !== this.nil) {
+      pivotNode.right.parent = current;
     }
 
     pivotNode.parent = current.parent;
 
     if (current.parent === this.nil) {
       this.root = pivotNode;
+    } else if (current === current.parent.right) {
+      current.parent.right = pivotNode;
+    } else {
+      current.parent.left = pivotNode;
     }
 
     pivotNode.right = current;
@@ -60,6 +86,8 @@ class RBTree {
           newNode = grandparent;
         } else {
           if (newNode === newNode.parent.right) {
+            newNode = newNode.parent;
+            this.leftRotate(newNode);
           }
           // case 2
           newNode.parent.color = BLACK;
@@ -131,8 +159,15 @@ class RBTree {
 
 const rb = new RBTree();
 
-rb.insert(30);
-rb.insert(20);
+rb.insert(15);
 rb.insert(10);
+rb.insert(27);
+rb.insert(12);
+rb.insert(8);
+rb.insert(5);
+rb.insert(9);
+rb.insert(11);
+rb.insert(3);
+
 // rb.insert(10);
 rb.print();
