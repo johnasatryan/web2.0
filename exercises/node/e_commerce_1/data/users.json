@@ -1,0 +1,10 @@
+[
+  {
+    "id": "u1",
+    "name": "John",
+    "email": "john@test.com",
+    "role": "user",
+    "createdAt": "2025-01-10T12:00:00.000Z",
+    "updatedAt": "2025-01-10T12:00:00.000Z"
+  }
+]
